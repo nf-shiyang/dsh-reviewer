@@ -1,7 +1,7 @@
 {
   "name": "dsh-reviewer",
-  "version": "0.1.0",
-  "description": "让 DeepSeek Harness 以「代码评审专家（质量守门员）」角色工作 — 高级开发工程师套件的独立评审插件（写完自检 + 四维度评审 + 测试策略）。",
+  "version": "0.2.0",
+  "description": "让 DeepSeek Harness 以「代码评审专家（质量守门员）」角色工作 — 高级开发工程师套件的独立评审插件（四维度检查清单 + 评审输出格式 + 测试策略）。带重复挂载去重。",
   "type": "module",
   "main": "index.js",
   "files": [

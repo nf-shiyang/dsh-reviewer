@@ -61,8 +61,9 @@ test('[已修复] config 非对象不崩溃', () => { const c = makeMockCtx(); a
 test('[已修复] 缺失 systemPrompt 降级', () => { const c = makeMockCtx({ systemPrompt: 'missing' }); apply(c, {}); assert.equal(c.sections.length, 0); assert.equal(c.errors.length, 1) })
 test('[已修复] API 改名降级', () => { const c = makeMockCtx({ systemPrompt: 'wrong-api' }); apply(c, {}); assert.equal(c.sections.length, 0); assert.equal(c.errors.length, 1) })
 
-console.log('\n=== 已知限制 ===')
-test('[KNOWN-BUG] 重复 apply 产生重复 section（无去重）', () => { const c = makeMockCtx(); apply(c, {}); apply(c, {}); assert.equal(c.sections.length, 1) }, { knownBug: true })
+console.log('\n=== 去重（已修复） ===')
+test('[已修复] 重复 apply 仅注册 1 段（去重）', () => { const c = makeMockCtx(); apply(c, {}); apply(c, {}); assert.equal(c.sections.length, 1) })
+test('[已修复] 重复 apply 触发一次告警', () => { const c = makeMockCtx(); apply(c, {}); apply(c, {}); assert.equal(c.warns.length, 1) })
 
 console.log('\n==== 汇总 ====')
 console.log(`通过: ${passed} / 常规失败: ${failed} / 已知缺陷: ${knownBugFailures.length}`)
