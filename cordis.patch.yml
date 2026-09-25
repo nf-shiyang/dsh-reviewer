@@ -1,0 +1,13 @@
+# 让 DeepSeek Harness 以「代码评审专家（质量守门员）」角色工作。
+# 本插件是「高级开发工程师套件」的独立评审插件；开发本体见 github:nf-shiyang/DSH。
+# 配置项（config 块，均可选）：
+#   text     — 整体覆盖角色文本（不填则用内置评审角色）
+#   name     — section 名（默认 dsh-reviewer:reviewer）
+#   order    — 排序（默认 60；排在开发核心段 50 之后）
+#   complete — true 时本段成为完整 system prompt，抑制其它段
+# 用户可在自己 profile 的 cordis.patch.yml / --patch 覆盖整行。
+- insert:
+    - id: reviewer
+      name: 'dsh-reviewer'
+      config:
+        order: 60
